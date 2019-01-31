@@ -1,7 +1,7 @@
 class CreateGiftcards < ActiveRecord::Migration[5.2]
   def change
     create_table :giftcards do |t|
-      t.string :type
+      t.string :card_type
       t.datetime :exp_date
       t.string :barcode
       t.string :passcode
