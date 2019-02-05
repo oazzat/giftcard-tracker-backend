@@ -1,5 +1,7 @@
 class Api::V1::GiftcardsController < ApplicationController
 
+  skip_before_action :authorized, only:[:index]
+
 def index
   @giftcards = Giftcard.all
   render json: @giftcards
