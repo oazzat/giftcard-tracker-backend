@@ -42,21 +42,33 @@ card_types = ["Best-Buy","Amazon","Itunes", "Walmart", "Target"]
 #   end
 # end
 
-Giftcard.all.each do |gc|
-  if gc.card_type == "Best-Buy"
-    gc.img = "https://us4products.nimblecommerce.com/api/v1/images/17015/skin"
-    gc.save
-  elsif gc.card_type == "Amazon"
-    gc.img = "https://production-gameflipusercontent.fingershock.com/us-east-1:47d82dc3-4acd-4d96-8053-9ae2fae26d3a/eba5e616-057e-4196-8f36-16381aa82529/1550faa5-c3b1-4bf9-8dd3-1bb8311bd5ce"
-    gc.save
-  elsif gc.card_type == "Itunes"
-    gc.img = "https://www.giftnix.com/giftnix/img/gift-cards/itunes-gift-card-email-delivery.png"
-    gc.save
-  elsif gc.card_type == "Walmart"
-    gc.img = "https://www.mountaineerins.com/wp-content/uploads/2017/01/Walmart-Gift-Card.png"
-    gc.save
-  elsif gc.card_type == "Target"
-    gc.img = "https://i2.wp.com/dannydealguru.com/wp-content/uploads/2016/02/target-gift-card.png?ssl=1"
-    gc.save
-  end
-end
+# Giftcard.all.each do |gc|
+#   if gc.card_type == "Best-Buy"
+#     gc.img = "https://us4products.nimblecommerce.com/api/v1/images/17015/skin"
+#     gc.save
+#   elsif gc.card_type == "Amazon"
+#     gc.img = "https://production-gameflipusercontent.fingershock.com/us-east-1:47d82dc3-4acd-4d96-8053-9ae2fae26d3a/eba5e616-057e-4196-8f36-16381aa82529/1550faa5-c3b1-4bf9-8dd3-1bb8311bd5ce"
+#     gc.save
+#   elsif gc.card_type == "Itunes"
+#     gc.img = "https://www.giftnix.com/giftnix/img/gift-cards/itunes-gift-card-email-delivery.png"
+#     gc.save
+#   elsif gc.card_type == "Walmart"
+#     gc.img = "https://www.mountaineerins.com/wp-content/uploads/2017/01/Walmart-Gift-Card.png"
+#     gc.save
+#   elsif gc.card_type == "Target"
+#     gc.img = "https://i2.wp.com/dannydealguru.com/wp-content/uploads/2016/02/target-gift-card.png?ssl=1"
+#     gc.save
+#   end
+# end
+
+# Listing.all.each do |listing|
+#   if listing.date_sold != nil
+#   listing.prev_user = User.all.sample.id
+#   listing.save
+#   end
+# end
+
+# Giftcard.all.each do |c|
+#   c.listed = false
+#   c.save
+# end

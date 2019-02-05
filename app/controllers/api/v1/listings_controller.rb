@@ -28,5 +28,5 @@ class Api::V1::ListingsController < ApplicationController
   end
 
   def listing_params
-  params.permit(:price, :giftcard_id, :user_id, :date_sold, :date_posted)
+  params.permit(:price, :giftcard_id, :user_id, :date_sold, :date_posted, :prev_user)
   end
