@@ -1,4 +1,5 @@
 class GiftcardSerializer < ActiveModel::Serializer
-  attributes :id, :card_type
+  attributes :id
   has_many :listings
+  belongs_to :store
 end
