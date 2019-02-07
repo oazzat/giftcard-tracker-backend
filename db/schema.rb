@@ -10,23 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_211622) do
+ActiveRecord::Schema.define(version: 2019_02_07_195005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "giftcards", force: :cascade do |t|
-    t.string "card_type"
     t.datetime "exp_date"
     t.string "barcode"
     t.string "passcode"
     t.float "balance"
     t.integer "user_id"
     t.datetime "date_verified"
-    t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "listed"
+    t.integer "store_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -38,6 +37,13 @@ ActiveRecord::Schema.define(version: 2019_02_05_211622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prev_user"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

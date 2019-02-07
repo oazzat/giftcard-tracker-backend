@@ -24,6 +24,11 @@ class Api::V1::ListingsController < ApplicationController
     render json: {id: params[:id]}
   end
 
+  def best_selling
+    allSold = Listing.all.where.not(date_sold: nil)
+    
+  end
+
 
   end
 
