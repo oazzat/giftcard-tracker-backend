@@ -24,6 +24,7 @@ def destroy
   render json: {id: params[:id]}
 end
 
+
 # Total cards by type with their count
 # def gc_count
 #     render json: Giftcard.select("card_type").group("card_type").order(:count).count

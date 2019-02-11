@@ -98,3 +98,6 @@ require 'faker'
           #     li.user_id = 107
           #     li.date_sold = Faker::Date.between(li.date_posted, 1.day.ago)
           #     li.save
+
+          Listing.all.last.giftcard.listed = false
+          Listing.all.last.giftcard.save

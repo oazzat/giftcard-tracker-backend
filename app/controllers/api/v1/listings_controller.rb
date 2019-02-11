@@ -9,7 +9,9 @@ class Api::V1::ListingsController < ApplicationController
 
   def create
     @listing = Listing.create(listing_params)
-    render json: @listing
+    @listing.giftcard.update(listed: true)
+    @giftcard = @listing.giftcard
+    render json: @giftcard
   end
 
   def update
