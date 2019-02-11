@@ -4,12 +4,16 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-          resources :listings
+          resources :listings, only:[:index, :create, :update, :destroy]
             # get '/best_selling', to: 'listings#best_selling'
+            get '/listings/user_sold', to: 'listings#user_sold'
+            get '/listings/user_purchased', to: 'listings#user_purchased'
+            get '/listings/user_for_sale', to: 'listings#user_for_sale'
 
           resources :giftcards, only:[:index, :create, :update, :destroy]
             get '/giftcards/for_sale_by_type/:store', to: 'giftcards#for_sale_by_type'
             get '/giftcards/for_sale', to: 'giftcards#for_sale'
+            get '/giftcards/all_user_cards', to: 'giftcards#all_user_cards'
             # get '/giftcards/gc_count', to: 'giftcards#gc_count'
             # get '/giftcards/best_selling', to: 'giftcards#best_selling'
 

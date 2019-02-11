@@ -26,11 +26,21 @@ class Api::V1::ListingsController < ApplicationController
 
   def best_selling
     allSold = Listing.all.where.not(date_sold: nil)
-    
   end
 
-
+  def user_sold
+    render json: Listing.all.where("prev_user = ?",current_user.id).reverse
   end
+
+  def user_purchased
+    render json: Listing.where(user_id: current_user.id).where.not(date_sold: nil).reverse
+  end
+
+  def user_for_sale
+    render json: Listing.where(user_id: current_user.id).where(date_sold: nil).reverse
+  end
+
+end
 
   def listing_params
   params.permit(:price, :giftcard_id, :user_id, :date_sold, :date_posted, :prev_user)

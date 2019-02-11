@@ -11,7 +11,7 @@ class Api::V1::StoresController < ApplicationController
     count = Listing.all.where.not(date_sold: nil).joins(:giftcard).select(:store_id).group(:store_id).count
     count = count.map do |k,v|
       store = Store.find(k)
-      {store.name => v}
+      {store.name => v, img: store.img}
     end
     render json: count.sort_by{|obj|obj.values[0]}.reverse
   end

@@ -38,29 +38,30 @@ require 'faker'
 
 # Create Giftcards and assign to users:
           # 1000.times do
-          #   Giftcard.create(
-          #     store: Store.all.sample,
-          #     barcode: Faker::Bank.account_number(10),
-          #     passcode: Faker::Bank.account_number(4),
-          #     balance: Faker::Number.between(5, 300),
-          #     exp_date: Faker::Date.between(1.month.from_now, 2.years.from_now),
-          #     user_id: User.all.sample.id,
-          #     listed: false
-          #   )
+            # Giftcard.create(
+            #   store: Store.all.sample,
+            #   barcode: Faker::Bank.account_number(10),
+            #   passcode: Faker::Bank.account_number(4),
+            #   balance: Faker::Number.between(5, 300),
+            #   exp_date: Faker::Date.between(1.month.from_now, 2.years.from_now),
+            #   user_id: 107,
+            #   listed: false
+            # )
           # end
 
 
 # Create listings to sell (for sale):
           # Giftcard.all.each do |gc|
           #   if gc.id % 3 != 0
-          #     Listing.create(
-          #       price: 0.8 * gc.balance,
-          #       giftcard_id: gc.id,
-          #       user_id: gc.user_id,
-          #       date_posted: Faker::Date.between(5.months.ago, 1.day.ago),
-          #       date_sold: nil,
-          #       prev_user: nil
-          #     )
+
+              # Listing.create(
+              #   price: 0.8 * gc.balance,
+              #   giftcard_id: gc.id,
+              #   user_id: gc.user_id,
+              #   date_posted: Faker::Date.between(5.months.ago, 1.day.ago),
+              #   date_sold: nil,
+              #   prev_user: nil
+              # )
           #      gc.listed = true
           #      gc.save
           #   end
@@ -81,3 +82,19 @@ require 'faker'
           #     li.save
           #   end
           # end
+
+
+
+          # Listing.create(price: 150, giftcard_id: 2001, user_id: 105, prev_user: 107, date_sold: Faker::Date.between(5.months.ago, 1.day.ago), date_posted: Faker::Date.between(10.months.ago, 6.months.ago))
+
+          # li = Listing.all.find(1335)
+          # g = Giftcard.find(1001)
+          #
+          #     g.user_id = 107
+          #     g.listed = false
+          #     g.save
+          #
+          #     li.prev_user = li.user_id
+          #     li.user_id = 107
+          #     li.date_sold = Faker::Date.between(li.date_posted, 1.day.ago)
+          #     li.save

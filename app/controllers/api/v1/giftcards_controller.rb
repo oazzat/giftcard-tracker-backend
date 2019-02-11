@@ -36,15 +36,19 @@ end
 
 def for_sale_by_type
 
-  render json: Giftcard.all.joins(:store).joins(:listings).where("name = ? AND listed = true",params[:store])
+  render json: Giftcard.all.joins(:store).joins(:listings).where("name = ? AND listed = true",params[:store]).reverse
 end
 
 def for_sale
-  render json: Giftcard.all.joins(:store).joins(:listings).where("listed = true")
+  render json: Giftcard.all.joins(:store).joins(:listings).where("listed = true").reverse
+end
+
+def all_user_cards
+  render json: Giftcard.all.where("user_id = ?",current_user.id).reverse
 end
 
 end
 
 def giftcard_params
-params.permit(:store, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed)
+params.permit(:store_id, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed)
 end
