@@ -17,7 +17,12 @@ class Api::V1::ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
     @listing.update(listing_params)
-    render json: @listing
+    @listing.giftcard.update(listed: false, user_id: @listing.user_id)
+    @buyer = @listing.user
+    @buyer.update(balance: (@buyer.balance - @listing.price))
+    @seller = User.find(@listing.prev_user)
+    @seller.update(balance: (@seller.balance+@listing.price))
+    render json: @listing.giftcard
   end
 
   def destroy
@@ -45,5 +50,5 @@ class Api::V1::ListingsController < ApplicationController
 end
 
   def listing_params
-  params.permit(:price, :giftcard_id, :user_id, :date_sold, :date_posted, :prev_user)
+  params.permit(:id, :price, :giftcard_id, :user_id, :date_sold, :date_posted, :prev_user)
   end
