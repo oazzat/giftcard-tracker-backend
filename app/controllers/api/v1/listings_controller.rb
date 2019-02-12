@@ -31,9 +31,9 @@ class Api::V1::ListingsController < ApplicationController
     render json: {id: params[:id]}
   end
 
-  def best_selling
-    allSold = Listing.all.where.not(date_sold: nil)
-  end
+  # def best_selling
+  #   allSold = Listing.all.where.not(date_sold: nil)
+  # end
 
   def user_sold
     render json: Listing.all.where("prev_user = ?",current_user.id).reverse
