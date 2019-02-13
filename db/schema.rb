@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_180109) do
+ActiveRecord::Schema.define(version: 2019_02_13_215304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_180109) do
     t.datetime "updated_at", null: false
     t.boolean "listed"
     t.integer "store_id"
+    t.boolean "hasExpired"
   end
 
   create_table "listings", force: :cascade do |t|

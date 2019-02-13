@@ -99,5 +99,10 @@ require 'faker'
           #     li.date_sold = Faker::Date.between(li.date_posted, 1.day.ago)
           #     li.save
 
-          Listing.all.last.giftcard.listed = false
-          Listing.all.last.giftcard.save
+          # Listing.all.last.giftcard.listed = false
+          # Listing.all.last.giftcard.save
+
+          Giftcard.all.each do |c|
+            bool = Time.now>c.exp_date
+            c.update(hasExpired: bool)
+          end

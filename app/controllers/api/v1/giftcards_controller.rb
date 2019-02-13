@@ -51,5 +51,5 @@ end
 end
 
 def giftcard_params
-params.permit(:store_id, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed)
+params.permit(:store_id, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed, :hasExpired)
 end
