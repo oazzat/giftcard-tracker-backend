@@ -102,7 +102,7 @@ require 'faker'
           # Listing.all.last.giftcard.listed = false
           # Listing.all.last.giftcard.save
 
-          Giftcard.all.each do |c|
-            bool = Time.now>c.exp_date
-            c.update(hasExpired: bool)
-          end
+          # Giftcard.all.each do |c|
+          #   bool = Time.now>c.exp_date
+          #   c.update(hasExpired: bool)
+          # end
