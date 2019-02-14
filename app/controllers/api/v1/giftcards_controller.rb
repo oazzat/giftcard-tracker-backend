@@ -14,14 +14,15 @@ end
 
 def update
   @giftcard = Giftcard.find(params[:id])
-  @giftcard.update(giftcard_params)
-  render json: @giftcard
+  @giftcard.update(listed: 'false')
+  puts params
+  render json: {id: @giftcard.id}
 end
 
 def destroy
   @giftcard = Giftcard.find(params[:id])
   @giftcard.destroy()
-  render json: {id: params[:id]}
+  render json: {id: @giftcard.id}
 end
 
 
@@ -51,5 +52,5 @@ end
 end
 
 def giftcard_params
-params.permit(:store_id, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed, :hasExpired)
+params.permit(:id, :store_id, :exp_date, :barcode, :passcode, :balance, :user_id, :date_verified, :img, :listed, :hasExpired)
 end

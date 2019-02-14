@@ -40,11 +40,11 @@ class Api::V1::ListingsController < ApplicationController
   end
 
   def user_purchased
-    render json: Listing.where(user_id: current_user.id).where.not(date_sold: nil).reverse
+    render json: Listing.all.where(user_id: current_user.id).where.not(date_sold: nil).reverse
   end
 
   def user_for_sale
-    render json: Listing.where(user_id: current_user.id).where(date_sold: nil).reverse
+    render json: Listing.all.joins(:giftcard).where(giftcards: {listed: true}).where(user_id: current_user.id).where(date_sold: nil).reverse
   end
 
 end
