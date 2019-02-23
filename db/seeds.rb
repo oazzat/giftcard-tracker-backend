@@ -106,3 +106,8 @@ require 'faker'
           #   bool = Time.now>c.exp_date
           #   c.update(hasExpired: bool)
           # end
+
+  Store.all.where(name: "Amazon").each do |s|
+    s.img = "https://production-gameflipusercontent.fingershock.com/us-east-1:47d82dc3-4acd-4d96-8053-9ae2fae26d3a/eba5e616-057e-4196-8f36-16381aa82529/1550faa5-c3b1-4bf9-8dd3-1bb8311bd5ce"
+    s.save
+  end
