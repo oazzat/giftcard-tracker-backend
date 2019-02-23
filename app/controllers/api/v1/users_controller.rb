@@ -8,9 +8,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-    if current_user
-      render json: current_user
-    end
+    render json: current_user
   end
 
   def create
